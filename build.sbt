@@ -3,6 +3,8 @@
 ThisBuild / scalaVersion := "2.13.17"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
+javacOptions ++= Seq("--release", "17")
+scalacOptions ++= Seq("-release", "17")
 
 enablePlugins(SbtWar)
 
