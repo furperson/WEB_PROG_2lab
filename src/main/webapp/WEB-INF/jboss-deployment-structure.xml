@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="jakarta.servlet.api"/>
+            <module name="jakarta.servlet.jsp.api"/>
+
+            <!-- <module name="jakarta.servlet.jsp.jstl.api"/>
+
+            <module name="org.glassfish.jakarta.servlet.jsp.jstl"/> -->
+
+            <module name="jakarta.el.api"/>
+            <module name="org.glassfish.jakarta.el"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
