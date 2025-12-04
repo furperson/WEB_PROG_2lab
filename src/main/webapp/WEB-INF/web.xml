@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>ControllerServlet</servlet-name>
-        <servlet-class>Top.ControllerServlet</servlet-class>
+        <servlet-class>com.web3.servlets.ControllerServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -14,6 +14,29 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/controller</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <servlet-class>com.web3.servlets.AreaCheckServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <url-pattern>/check</url-pattern>
+    </servlet-mapping>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Resources</web-resource-name>
+            <url-pattern>/check/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint/>
+    </security-constraint>
 
     <error-page>
         <error-code>404</error-code>

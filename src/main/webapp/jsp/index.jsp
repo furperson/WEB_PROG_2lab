@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page import="beans.HistoryBean" %>
+<%@ page import="beans.CheckResult" %>
 <%
     String action = request.getParameter("action");
     if ("clear".equals(action)) {
@@ -14,6 +15,7 @@
         return;
     }
 %>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -75,6 +77,7 @@
                                         <div id="r-error" class="error-message"></div>
                                     </div>
                                     <input type="hidden" id="x-hidden" name="X" value="0">
+                                    <input type="hidden" id="is-canvas" name="Canv" value="0">
                                     <input type="submit" value="Проверить">
                                 </form>
                                 <form id="clear-form" action="${pageContext.request.contextPath}/controller"  method="get" style="margin-top: 10px;">
@@ -105,7 +108,7 @@
                         <c:if test="${not empty historyBean.results}">
                             <c:forEach var="result" items="${historyBean.results}">
                                 <tr>
-                                    <td>${result.hit ? 'Попадание' : 'Промах'}</td>
+                                    <td>${result.hitResult}</td>
                                     <td>${result.x}</td>
                                     <td>${result.y}</td>
                                     <td>${result.r}</td>
@@ -130,6 +133,8 @@
              data-y="${result.y}"
              data-r="${result.r}"
              data-hit="${result.hit}"
+             data-on-time="${result.onTime}"
+             data-work-time="${result.workTime}"
              data-id="${status.index}"
              style="display: none;"></div>
     </c:forEach>

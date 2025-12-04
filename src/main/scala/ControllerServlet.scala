@@ -1,12 +1,12 @@
-package Top
+package com.web3.servlets
 
 import jakarta.servlet._
 import jakarta.servlet.http._
 import jakarta.servlet.annotation.WebServlet
 
-class ControllerServlet extends HttpServlet {
 
-  private val areaCheckServlet = new AreaCheckServlet()
+
+class ControllerServlet extends HttpServlet {
 
   override def doGet(req: HttpServletRequest, res: HttpServletResponse): Unit = {
     processRequest(req, res)
@@ -28,7 +28,8 @@ class ControllerServlet extends HttpServlet {
         Option(req.getParameter("R")).isDefined
 
       if (hasCoordinates && action == "check") {
-        areaCheckServlet.service(req, res)
+        req.getRequestDispatcher("/check").forward(req, res)
+        //areaCheckServlet.service(req, res)
       } else {
         req.getRequestDispatcher("/jsp/index.jsp").forward(req, res)
       }

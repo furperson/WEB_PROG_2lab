@@ -7,7 +7,6 @@ class Graph {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.center = this.width / 2;
-
         this.rButtons = document.querySelectorAll('input[name="R"]');
 
         this.currentR = parseFloat(document.querySelector('input[name="R"]:checked')?.value) || 3;
@@ -64,21 +63,8 @@ class Graph {
         // Заполняем поля формы
         document.getElementById('x-hidden').value = x.toFixed(2);
         document.getElementById('y-text').value = y.toFixed(2);
-
-
-        const xButtons = document.querySelectorAll('#X-button-group button');
-        const closestButton = Array.from(xButtons).reduce((closest, button) => {
-            const btnValue = parseFloat(button.value);
-            const currentDiff = Math.abs(btnValue - x);
-            const closestDiff = closest ? Math.abs(parseFloat(closest.value) - x) : Infinity;
-            return currentDiff < closestDiff ? button : closest;
-        }, null);
-
-        if (closestButton) {
-            xButtons.forEach(btn => btn.classList.remove('active'));
-            closestButton.classList.add('active');
-            document.getElementById('selectedX').textContent = closestButton.value;
-        }
+        document.getElementById("is-canvas").value = "1";
+        console.log("yes");
 
 
         form.requestSubmit();
